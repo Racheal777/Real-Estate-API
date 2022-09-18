@@ -1,8 +1,9 @@
 //importing modules
 import Sequelize  from 'sequelize'
 import express, {Application} from 'express'
-import dotenv from 'dotenv'
+import helmet from 'helmet'
 import {router} from '../Routes/api'
+
 
 const PORT = process.env.PORT || 7070
 
@@ -14,9 +15,10 @@ const app: Application = express()
 //middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(helmet())
 
 
-db.sequelize.sync({force: false}).then(() => {
+db.sequelize.sync({force: true}).then(() => {
     console.log('db has been sync')
 })
 

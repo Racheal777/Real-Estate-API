@@ -1,12 +1,14 @@
 
 import { Router } from "express";
 import express from 'express'
-import {addUser} from '../Controllers/UserController'
+import userController from '../Controllers/UserController'
+
+import DuplicateCheck from '../Middlewares/UserAuth'
 
 
 export const router:Router = express.Router()
 
-router.post('/users',addUser )
+router.post('/users',DuplicateCheck.verifyUser, userController.addUser )
 
 
 
