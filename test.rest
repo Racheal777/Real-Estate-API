@@ -1,0 +1,8 @@
+POST http://localhost:7070/api/users
+Content-Type: application/json
+
+{
+    "name": "racheal",
+    "email": "racheal@gmail.com",
+    "password": "123456"
+}
