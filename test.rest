@@ -1,8 +1,20 @@
-POST http://localhost:7070/api/users
+# POST http://localhost:7070/api/users
+# Content-Type: application/json
+
+# {
+#     "name": "Racheal Kuranchie",
+#     "email": "kuranchieracheal@gmail.com",
+#     "password": "123456"
+# }
+
+POST http://localhost:7070/api/login
 Content-Type: application/json
 
 {
-    "name": "Racheal Kuranchie",
     "email": "kuranchieracheal@gmail.com",
     "password": "123456"
 }
+
+
+
+

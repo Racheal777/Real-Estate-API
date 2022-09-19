@@ -2,7 +2,8 @@
 import Sequelize  from 'sequelize'
 import express, {Application} from 'express'
 import helmet from 'helmet'
-import {router} from '../Routes/api'
+import router from '../Routes/api'
+import cookieParser from 'cookie-parser'
 
 
 const PORT = process.env.PORT || 7070
@@ -16,9 +17,10 @@ const app: Application = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(helmet())
+app.use(cookieParser())
 
 
-db.sequelize.sync({force: true}).then(() => {
+db.sequelize.sync({force: false}).then(() => {
     console.log('db has been sync')
 })
 
