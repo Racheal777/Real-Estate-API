@@ -3,6 +3,7 @@ import db from '../Config/db.config'
 
 
 interface PropertyAttribute {
+id: number
 name: string
 location:string
 facilities: string,
@@ -17,6 +18,12 @@ updatedAt: Date
 export class Property extends Model<PropertyAttribute>{}
 
 Property.init({
+
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement:true,
+        primaryKey: true
+    },
     name:{
         type: DataTypes.STRING,
         allowNull:false

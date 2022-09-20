@@ -37,6 +37,12 @@ const storage = multer.diskStorage({
 //Property routes
 router.post('/property/add', upload.array('images'), PropertyController.addProperty )
 
+//get all properties
+router.get('/property/all-properties', PropertyController.getAllProperties )
+
+//get one property
+router.get('/property/one-property/:id', PropertyController.getOneProperty)
+
 export default router
 
 
