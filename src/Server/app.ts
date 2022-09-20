@@ -18,6 +18,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(helmet())
 app.use(cookieParser())
+app.use(express.static('uploads'))
 
 
 db.sequelize.sync({force: false}).then(() => {

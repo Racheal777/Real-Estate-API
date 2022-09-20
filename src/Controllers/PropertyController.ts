@@ -17,8 +17,8 @@ import { NextFunction, Request, Response } from "express";
        
         const newProperty = await Property.create({...req.body, images})
         res.json( {'property': newProperty})
-        console.log({...req.body})
-        console.log(req.files);
+        //console.log({...req.body})
+        //console.log(req.files);
         
         console.log(newProperty.toJSON())
 

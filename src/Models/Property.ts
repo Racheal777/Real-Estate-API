@@ -5,7 +5,9 @@ import db from '../Config/db.config'
 interface PropertyAttribute {
 name: string
 location:string
-amenities: string,
+facilities: string,
+amenities: string
+rent: number
 description: string
 images: string
 createdAt: Date
@@ -27,6 +29,14 @@ Property.init({
 
     description: {
         type: DataTypes.TEXT
+    },
+
+    rent: {
+        type: DataTypes.INTEGER
+    },
+
+    facilities: {
+        type: DataTypes.ARRAY(DataTypes.STRING)
     },
 
     amenities: {
