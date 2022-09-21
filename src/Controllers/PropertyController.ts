@@ -1,6 +1,7 @@
 import multer from 'multer';
 import {Property} from '../Models/Property'
 import { NextFunction, Request, Response } from "express";
+import { Op } from 'sequelize';
 
  class PropertyController {
 
@@ -47,6 +48,37 @@ import { NextFunction, Request, Response } from "express";
 
         } catch (error) {
            console.log(error) 
+        }
+        
+    }
+
+
+    //search a property
+    searchProperty = async (req:Request, res:Response) =>{
+
+        try {
+           
+            //get the values in the params
+        const {name, location, rent} = req.params
+
+        //find all properties
+        const property = await Property.findAll({
+            where: {
+                
+                [Op.or] : [
+                    {name: {[Op.iLike]: name}},
+                    {location: {[Op.iLike]: location}},
+                    //{location: location},
+                     {rent: rent}
+                ]
+                
+            }   
+        })
+
+        res.json({'properties': property})
+
+        } catch (error) {
+            console.log(error)
         }
         
     }
