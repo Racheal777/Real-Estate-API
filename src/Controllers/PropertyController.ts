@@ -10,12 +10,15 @@ import { Op } from 'sequelize';
 
         //uploading a file
         try {    
+            //const amenities:[] = req.body
+        
         const images= req.files?.map(item => item.originalname)
+        //const amenity = amenities?.map()
         const newProperty = await Property.create({...req.body, images})
         res.json( {'property': newProperty})
-        //console.log({...req.body})
-        //console.log(req.files);
+        
         console.log(newProperty.toJSON())
+    
 
         } catch (error) {
            console.log(error) 
@@ -28,7 +31,7 @@ import { Op } from 'sequelize';
         try {
 
         const properties = await Property.findAll()
-        res.json({'properties': properties})
+        res.json({properties}.properties)
 
         } catch (error) {
           console.log(error)  

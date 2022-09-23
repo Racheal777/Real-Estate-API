@@ -6,11 +6,12 @@ interface PropertyAttribute {
 id: number
 name: string
 location:string
-facilities: string,
-amenities: string
+facilities: string[],
+amenities: string[]
 rent: number
 description: string
-images: string
+images: string[]
+
 createdAt: Date
 updatedAt: Date
 }
@@ -28,6 +29,8 @@ Property.init({
         type: DataTypes.STRING,
         allowNull:false
     },
+
+    
 
     location: {
         type: DataTypes.STRING,
