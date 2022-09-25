@@ -8,7 +8,9 @@ import multer from "multer";
 import DuplicateCheck from '../Middlewares/UserAuth'
 import PropertyController  from '../Controllers/PropertyController'
 
-const {addProperty, getOneProperty, getAllProperties, searchProperty} = PropertyController
+const {addProperty, getOneProperty,
+   getAllProperties, searchProperty,
+  currentProperties} = PropertyController
 
 
 const router = Router()
@@ -61,6 +63,8 @@ router.get('/property/one-property/:id', getOneProperty)
 
 //search a property
 router.get('/property/search/:location/:name/:rent', searchProperty)
+
+router.get('/new-properties', currentProperties)
 
 export default router
 

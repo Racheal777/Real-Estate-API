@@ -47,7 +47,7 @@ import { Op } from 'sequelize';
 
             const propertyId = req.params.id
             const property = await Property.findOne({where: {id: propertyId}})
-            res.json({'property': property}) 
+            res.json({'property': property}.property) 
 
         } catch (error) {
            console.log(error) 
@@ -78,10 +78,28 @@ import { Op } from 'sequelize';
             }   
         })
 
-        res.json({'properties': property})
+        res.json({'properties': property}.properties)
 
         } catch (error) {
             console.log(error)
+        }
+        
+    }
+
+
+    //show current property
+    currentProperties = async (req:Request, res:Response) => {
+
+        try {
+            const property = Property.findAll()
+            const reverse = (await property).reverse()
+            const first3 = reverse.slice(0, 3)
+            res.send(first3)
+            console.log(first3.length)
+            
+            
+        } catch (error) {
+          console.log(error)  
         }
         
     }

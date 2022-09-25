@@ -7,14 +7,16 @@
 #     "password": "123456"
 # }
 
-POST http://localhost:7070/api/login
-Content-Type: application/json
+# POST http://localhost:7070/api/login
+# Content-Type: application/json
 
-{
-    "email": "kuranchieracheal@gmail.com",
-    "password": "123456"
-}
+# {
+#     "email": "kuranchieracheal@gmail.com",
+#     "password": "123456"
+# }
 
+
+GET http://localhost:7070/api/new-properties
 
 
 
