@@ -67,7 +67,7 @@ import { Op } from 'sequelize';
         //find all properties
         const property = await Property.findAll({
             where: {
-                
+    
                 [Op.or] : [
                     {name: {[Op.iLike]: name}},
                     {location: {[Op.iLike]: location}},

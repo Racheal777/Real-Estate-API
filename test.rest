@@ -16,7 +16,7 @@
 # }
 
 
-GET http://localhost:7070/api/new-properties
+GET http://localhost:7070/api/property/search/airport/singleroom/800
 
 
 
